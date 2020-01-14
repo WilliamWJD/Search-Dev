@@ -1,5 +1,6 @@
 const express=require('express')
 const mongoose=require('mongoose')
+const routes=require('./routes')
 
 require('dotenv').config()
 
@@ -9,6 +10,9 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
+
+server.use(express.json())
+server.use(routes)
 
 const port=process.env.SERVER_PORT
 
