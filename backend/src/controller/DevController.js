@@ -30,5 +30,30 @@ module.exports = {
             })
         }
         res.json(dev)
-    }
+    },
+
+    async update(req,res){
+        const {techs, latitude, longitude}=req.body
+        const {dev_id}=req.params
+
+        let dev=await Dev.findOne({_id:dev_id})
+
+        if(!dev){
+            return res.status(401).json({error:'Dev not found'})
+        }
+
+        const techsArray=parseStringAsArray(techs)
+
+        const location={
+            type:'Point',
+            coordinates:[longitude, latitude]
+        }
+
+        await dev.update({
+            techs:techsArray, location
+        })
+
+        return res.json(dev)
+    },
+    
 }
