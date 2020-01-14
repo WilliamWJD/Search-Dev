@@ -8,7 +8,8 @@ const DevSchema=new mongoose.Schema({
     avatar_url:String,
     techs:[String],
     location:{
-        type:PointSchema
+        type:PointSchema,
+        index:'2dsphere'
     }
 })
 
