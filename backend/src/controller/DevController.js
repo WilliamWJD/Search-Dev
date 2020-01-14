@@ -55,5 +55,19 @@ module.exports = {
 
         return res.json(dev)
     },
+
+    async destroy(req,res){
+        const {dev_id}=req.params
+
+        const dev=await Dev.findById({_id:dev_id})
+
+        if(!dev){
+            return res.status(401).json({error:'Dev not found'})
+        }
+
+        await dev.delete()
+
+        return res.json({message:'Dev exclused succefull'})
+    }
     
 }
