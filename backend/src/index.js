@@ -1,5 +1,6 @@
 const express=require('express')
 const mongoose=require('mongoose')
+const cors=require('cors')
 const routes=require('./routes')
 
 require('dotenv').config()
@@ -11,6 +12,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD
     useUnifiedTopology:true
 })
 
+server.use(cors())
 server.use(express.json())
 server.use(routes)
 
