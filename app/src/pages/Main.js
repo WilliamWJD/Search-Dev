@@ -63,6 +63,24 @@ const styles=StyleSheet.create({
         borderWidth:4,
         borderColor:'#fff'
     },
+
+    callout:{
+        width:260,
+    },
+
+    devName:{
+        fontWeight:'bold',
+        fontSize:16
+    },
+
+    devBio:{
+        color:'#666',
+        marginTop:5
+    },
+
+    devTechs:{
+        marginTop:5
+    }
 })
 
 export default Main
