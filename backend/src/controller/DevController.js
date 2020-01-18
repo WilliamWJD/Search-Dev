@@ -39,7 +39,7 @@ module.exports = {
             )
             sendMessage(sendSocketMessageTo, 'new-dev', dev)
         }
-        res.json(dev)
+        return res.json(dev)
     },
 
     async update(req,res){
